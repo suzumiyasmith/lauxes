@@ -1,0 +1,15 @@
+{
+  "scripts": {
+    "dev": "parcel index.html",
+    "build": "parcel build index.html",
+    "release": "spago bundle-app -t main.js; cat main.js | closure-compiler > index.js",
+    "buildspago": "spago bundle-app -t index.js",
+    "watchbuild": " inotifywait -r -m src/ -e modify |\n while read p action file; do \n yarn buildspago \n done "
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4"
+  },
+  "dependencies": {
+    "virtual-dom": "^2.1.1"
+  }
+}
